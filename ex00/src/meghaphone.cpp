@@ -1,13 +1,18 @@
 
- #include <iostream>
+#include <iostream>
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    if(argc == 2)
-    {
-        for(int i = 0; argv[1][i]; i++)
-            std::cout << (char)toupper(argv[1][i]);
-        std::cout << std::endl;
-        return 0;
-    }
+	if (argc == 2)
+	{
+		for (int i = 0; argv[1][i]; i++)
+			std::cout << (char)toupper(argv[1][i]);
+		std::cout << std::endl;
+		return (0);
+	}
+	else
+	{
+		std::cout << "Usage: ./meghaphone <string>" << std::endl;
+		return (1);
+	}
 }

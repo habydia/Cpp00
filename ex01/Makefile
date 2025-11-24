@@ -1,8 +1,9 @@
 CC = g++
-CFLAGS = -Wall -Wextra -Werror -Iinclude -std=c++98
+CFLAGS = -Wall -Wextra -Werror -Iinclude -std=c++98 -MMD -MP
 
 SRC = src/commands.cpp \
 	  src/phoneBook.cpp \
+	  src/set_get.cpp \
 
 
 HEADER = include/PhoneBook.hpp
@@ -13,6 +14,7 @@ NAME = PhoneBook
 
 all: $(NAME)
 
+-include $(OBJ_DIR)/*.d
 $(NAME): $(OBJ_DIR) $(OBJ) 
 	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
 

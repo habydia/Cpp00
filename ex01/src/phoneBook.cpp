@@ -11,12 +11,12 @@
 
 // EXIT : quitte le programme proprement
 
-PhoneBook(void)
+PhoneBook::PhoneBook(void)
 {
 	std::cout << "Constructor called" << std::endl;
 }
 
-~PhoneBook(void)
+PhoneBook::~PhoneBook(void)
 {
 	std::cout << "Destructor called" << std::endl;
 }
@@ -26,21 +26,34 @@ PhoneBook(void)
 
 int	main(int argc, char **argv)
 {
-	PhoneBook PhoneBook1;
+	PhoneBook repertoire;
+	Contact a_contact;
 
-	PhoneBook1.command = argv[1];
-	if (argc != 2)
+	if (argc == 2)
 	{
-		std::cout << "Error: wrong number of arguments" << std::endl;
+		while (true)
+		{
+			std::string input = argv[1];
+			std::cout << "Enter a command (ADD, SEARCH, EXIT): " << std::endl;
+			std::cin >> input;
+			if (input == "ADD")
+			{
+				repertoire.add_contact(a_contact);
+			}
+			else if (input == "SEARCH")
+			{
+				repertoire.display_contact(a_contact);
+			}
+			else if (input == "EXIT")
+			{
+				std::cout << "Exiting program." << std::endl;
+				// repertoire.exit_program();
+			}
+			else
+			{
+				std::cout << "Invalid command" << std::endl;
+			}
+		}
+		return (0);
 	}
-
-	else if (PhoneBook1.command == "ADD")
-		PhoneBook1.add_contact();
-	else if (PhoneBook1.command == "SEARCH")
-		PhoneBook1.search_contact();
-	else if (PhoneBook1.command == "EXIT")
-		PhoneBook1.exit_program();
-	else
-		std::cout << "Error: command not found" << std::endl;
-	return (0);
 }

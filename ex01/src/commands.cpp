@@ -1,41 +1,41 @@
 
+
 #include "phoneBook.hpp"
 
-// add
-
-char *PhoneBook::add_contact(char *name, char *phoneNumber,
-	char *darksecret) : name(new_name), phoneNumber(new_phoneNumber),
-	darkestSecret(new_darkestSecret)
+int PhoneBook::add_contact(Contact &new_contact)
 {
-	char	*new_contact[4];
-	int		i;
-
-	i = 0;
-	std::cout << "Enter a new contact: " << std::endl;
-	while (new_contact[i] != NULL)
+	if (new_contact.create_contact(new_contact) != 1)
 	{
-		if (new_contact[i])
-		{
-			std::cout << "Name: ";
-			std::cin >> new_contact[0] >> name;
-			std::cout << "Phone Number: ";
-			std::cin >> new_contact[1] >> phoneNumber;
-			std::cout << "Darkest Secret: ";
-			std::cin >> new_contact[2] >> darkestSecret;
-		}
-		i++;
+		std::cout << "Failed to add contact. Please fill in all fields." << std::endl;
 	}
-	std::cout << "Contact added!" << std::endl;
-	return (new_contact);
-	// ajouter un contact
+	return (1);
 }
 
-// contact::show_contact() const {
+int Contact::create_contact(Contact &new_contact)
+{
+	std::string input;
+	std::cout << "enter name: " << std::endl;
+	std::cin >> input;
+	new_contact.setName(input);
+	std::cout << "enter phone number: " << std::endl;
+	std::cin >> input;
+	new_contact.setPhoneNumber(input);
+	std::cout << "enter darkest secret: " << std::endl;
+	std::cin >> input;
+	new_contact.setDarkestSecret(input);
+	return (1); // wrong return
+}
 
-// phoneBook::search_contact(const char **repertoire)
+void PhoneBook::display_contact(const Contact &contact)
+{
+	std::cout << "index: " << contact.getIndex() << "|";
+	std::cout << "Name: " << contact.getName() << "|";
+	std::cout << "Phone Number: " << contact.getPhoneNumber() << "|";
+	std::cout << "Darkest Secret: " << contact.getDarkestSecret() << std::endl;
+}
+
+// int	delete_contact(Contact &del_contact)
 // {
-// 	while (contacts)
-// 	{
-// 	}
-// 	// chercher un contact
+// 	// delete ildelete contact if repertoire is full (8 contacts)
+// 	return (0);
 // }

@@ -1,6 +1,6 @@
 
 CC = g++
-CFLAGS = -Wall -Wextra -Werror -Iinclude -std=c++98
+CFLAGS = -Wall -Wextra -Werror -Iinclude -std=c++98 
 SRC = src/meghaphone.cpp
 
 OBJ_DIR = obj
