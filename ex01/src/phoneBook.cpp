@@ -14,6 +14,9 @@
 PhoneBook::PhoneBook(void)
 {
 	std::cout << "Constructor called" << std::endl;
+	_nb_contact = 0;
+	_index = 0;
+	_oldest = 0;
 }
 
 PhoneBook::~PhoneBook(void)
@@ -26,34 +29,32 @@ PhoneBook::~PhoneBook(void)
 
 int	main(int argc, char **argv)
 {
+	(void)argc;
+	(void)argv;
 	PhoneBook repertoire;
 	Contact a_contact;
 
-	if (argc == 2)
+	while (true)
 	{
-		while (true)
+		std::string input;
+		std::cout << "Enter a command (ADD, SEARCH, EXIT): " << std::endl;
+		std::cin >> input;
+		if (input == "ADD")
 		{
-			std::string input = argv[1];
-			std::cout << "Enter a command (ADD, SEARCH, EXIT): " << std::endl;
-			std::cin >> input;
-			if (input == "ADD")
-			{
-				repertoire.add_contact(a_contact);
-			}
-			else if (input == "SEARCH")
-			{
-				repertoire.display_contact(a_contact);
-			}
-			else if (input == "EXIT")
-			{
-				std::cout << "Exiting program." << std::endl;
-				// repertoire.exit_program();
-			}
-			else
-			{
-				std::cout << "Invalid command" << std::endl;
-			}
+			repertoire.add_contact(a_contact);
 		}
-		return (0);
+		else if (input == "SEARCH")
+		{
+			repertoire.search_contacts();
+		}
+		else if (input == "EXIT")
+		{
+			repertoire.exit_program();
+		}
+		else
+		{
+			std::cout << "Invalid command" << std::endl;
+		}
 	}
+	return (0);
 }
