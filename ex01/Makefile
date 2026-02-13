@@ -6,10 +6,10 @@ SRC = src/commands.cpp \
 	  src/set_get.cpp \
 
 
-HEADER = include/PhoneBook.hpp
+HEADER = include/phoneBook.hpp
 
 OBJ_DIR = obj
-OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 NAME = PhoneBook
 
 all: $(NAME)
@@ -22,10 +22,10 @@ $(OBJ_DIR) :
 	@mkdir -p $(OBJ_DIR)
 
 force :
-%.o: %.c $(HEADER) Makefile
+%.o: %.cpp $(HEADER) Makefile
 	$(CC) $(CFLAGS) -O3 -c $< -o $@
 
-$(OBJ_DIR)/%.o: %.c Makefile | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: %.cpp Makefile | $(OBJ_DIR)
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -O3 -c $< -o $@
 

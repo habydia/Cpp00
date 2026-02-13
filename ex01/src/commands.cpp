@@ -23,19 +23,39 @@ int Contact::create_contact(Contact &new_contact)
 {
 	std::string input;
 	std::cout << "enter first name: " << std::endl;
-	std::cin >> input;
+	std::getline(std::cin, input);
+	if (input.empty()) {
+		std::cout << "First name cannot be empty." << std::endl;
+		return 0;
+	}
 	new_contact.setName(input);
 	std::cout << "enter last name: " << std::endl;
-	std::cin >> input;
+	std::getline(std::cin, input);
+	if (input.empty()) {
+		std::cout << "Last name cannot be empty." << std::endl;
+		return 0;
+	}
 	new_contact.setLastName(input);
 	std::cout << "enter nickname: " << std::endl;
-	std::cin >> input;
+	std::getline(std::cin, input);
+	if (input.empty()) {
+		std::cout << "Nickname cannot be empty." << std::endl;
+		return 0;
+	}
 	new_contact.setNickName(input);
 	std::cout << "enter phone number: " << std::endl;
-	std::cin >> input;
+	std::getline(std::cin, input);
+	if (input.empty()) {
+		std::cout << "Phone number cannot be empty." << std::endl;
+		return 0;
+	}
 	new_contact.setPhoneNumber(input);
 	std::cout << "enter darkest secret: " << std::endl;
-	std::cin >> input;
+	std::getline(std::cin, input);
+	if (input.empty()) {
+		std::cout << "Darkest secret cannot be empty." << std::endl;
+		return 0;
+	}
 	new_contact.setDarkestSecret(input);
 	return (1);
 }

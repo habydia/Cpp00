@@ -1,5 +1,5 @@
 #ifndef PHONEBOOK_H
-# define PHONEBOOH_H
+# define PHONEBOOK_H
 
 # include <algorithm>
 # include <cstdio>
@@ -15,7 +15,6 @@ class Contact
 	std::string nickName;
 	std::string phoneNumber;
 	std::string darkestSecret;
-	int index;
 
   public:
 	int create_contact(Contact &new_contact);
@@ -32,7 +31,6 @@ class Contact
 	std::string getNickName() const;
 	std::string getPhoneNumber() const;
 	std::string getDarkestSecret() const;
-	int getIndex() const;
 };
 
 class PhoneBook
@@ -53,7 +51,6 @@ class PhoneBook
 	Contact _contacts[8];
 	int _nb_contact;
 	int _index;
-	int _oldest;
 };
 
 #endif

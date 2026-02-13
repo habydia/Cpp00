@@ -1,4 +1,5 @@
 #include "../include/phoneBook.hpp"
+#include <limits>
 
 // repertoire vide au demarrage
 // ADD : invite a ajouter un contact, ajoute le contact au repertoire
@@ -16,7 +17,6 @@ PhoneBook::PhoneBook(void)
 	std::cout << "Constructor called" << std::endl;
 	_nb_contact = 0;
 	_index = 0;
-	_oldest = 0;
 }
 
 PhoneBook::~PhoneBook(void)
@@ -39,6 +39,7 @@ int	main(int argc, char **argv)
 		std::string input;
 		std::cout << "Enter a command (ADD, SEARCH, EXIT): " << std::endl;
 		std::cin >> input;
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		if (input == "ADD")
 		{
 			repertoire.add_contact(a_contact);

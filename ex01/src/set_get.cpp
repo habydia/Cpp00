@@ -49,7 +49,3 @@ std::string Contact::getDarkestSecret() const
 {
 	return (this->darkestSecret);
 }
-int Contact::getIndex() const
-{
-	return (this->index); // Exemple d'index statique
-}
