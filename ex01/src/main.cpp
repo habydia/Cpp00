@@ -1,16 +1,5 @@
-#include "../include/phoneBook.hpp"
+#include "../include/PhoneBook.hpp"
 #include <limits>
-
-// repertoire vide au demarrage
-// ADD : invite a ajouter un contact, ajoute le contact au repertoire
-// namme, lastname, nickname, phone number, darksecret
-// veiller a se que toutes champs soient remplis
-
-// SEARCH : affiche le repertoire
-// affiche un contact specifique sous forme de liste
-// 4 colonnes : index, first name, last name, nickname
-
-// EXIT : quitte le programme proprement
 
 PhoneBook::PhoneBook(void)
 {
@@ -24,9 +13,6 @@ PhoneBook::~PhoneBook(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-// l'uttilisateur entre une c
-// selon le type de commande la bonne commande est appelée
-
 int	main(int argc, char **argv)
 {
 	(void)argc;
@@ -39,6 +25,11 @@ int	main(int argc, char **argv)
 		std::string input;
 		std::cout << "Enter a command (ADD, SEARCH, EXIT): " << std::endl;
 		std::cin >> input;
+		if (std::cin.eof())
+		{
+			std::cout << "Exiting program." << std::endl;
+			break;
+		}
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		if (input == "ADD")
 		{

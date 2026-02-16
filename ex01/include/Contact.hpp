@@ -1,12 +1,11 @@
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # include <algorithm>
 # include <cstdio>
 # include <iostream>
 # include <string>
 
-// un contact du repertoire
 class Contact
 {
   private:
@@ -31,26 +30,6 @@ class Contact
 	std::string getNickName() const;
 	std::string getPhoneNumber() const;
 	std::string getDarkestSecret() const;
-};
-
-class PhoneBook
-{
-  public:
-	// contructeur destructeur
-	PhoneBook(void);
-	~PhoneBook(void);
-
-	// commands
-	int add_contact(Contact &new_contact);
-	int search_contacts();
-	int display_contact_list();
-	int display_contact_details(int index);
-	void exit_program();
-
-  private:
-	Contact _contacts[8];
-	int _nb_contact;
-	int _index;
 };
 
 #endif

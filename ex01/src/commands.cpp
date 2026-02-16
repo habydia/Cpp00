@@ -1,6 +1,6 @@
 
 
-#include "phoneBook.hpp"
+#include "PhoneBook.hpp"
 #include <cstdlib>
 #include <sstream>
 #include <limits>
@@ -24,35 +24,35 @@ int Contact::create_contact(Contact &new_contact)
 	std::string input;
 	std::cout << "enter first name: " << std::endl;
 	std::getline(std::cin, input);
-	if (input.empty()) {
+	if (!std::cin || input.empty()) {
 		std::cout << "First name cannot be empty." << std::endl;
 		return 0;
 	}
 	new_contact.setName(input);
 	std::cout << "enter last name: " << std::endl;
 	std::getline(std::cin, input);
-	if (input.empty()) {
+	if (!std::cin || input.empty()) {
 		std::cout << "Last name cannot be empty." << std::endl;
 		return 0;
 	}
 	new_contact.setLastName(input);
 	std::cout << "enter nickname: " << std::endl;
 	std::getline(std::cin, input);
-	if (input.empty()) {
+	if (!std::cin || input.empty()) {
 		std::cout << "Nickname cannot be empty." << std::endl;
 		return 0;
 	}
 	new_contact.setNickName(input);
 	std::cout << "enter phone number: " << std::endl;
 	std::getline(std::cin, input);
-	if (input.empty()) {
+	if (!std::cin || input.empty()) {
 		std::cout << "Phone number cannot be empty." << std::endl;
 		return 0;
 	}
 	new_contact.setPhoneNumber(input);
 	std::cout << "enter darkest secret: " << std::endl;
 	std::getline(std::cin, input);
-	if (input.empty()) {
+	if (!std::cin || input.empty()) {
 		std::cout << "Darkest secret cannot be empty." << std::endl;
 		return 0;
 	}
@@ -123,6 +123,8 @@ int PhoneBook::search_contacts()
 		std::cout << "Invalid input." << std::endl;
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::string input;
+		std::getline(std::cin, input);
 		return (-1);
 	}
 	display_contact_details(index);

@@ -1,10 +1,10 @@
 
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -Iinclude -std=c++98 
-SRC = src/meghaphone.cpp
+SRC = src/main.cpp
 
 OBJ_DIR = obj
-OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 NAME = meghaphone
 
 all: $(NAME)
@@ -16,10 +16,10 @@ $(OBJ_DIR) :
 	@mkdir -p $(OBJ_DIR)
 
 force :
-%.o: %.c Makefile
+%.o: %.cpp Makefile
 	$(CC) $(CFLAGS) -O3 -c $< -o $@
 
-$(OBJ_DIR)/%.o: %.c Makefile | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: %.cpp Makefile | $(OBJ_DIR)
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -O3 -c $< -o $@
 

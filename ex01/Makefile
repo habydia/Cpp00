@@ -2,7 +2,7 @@ CC = g++
 CFLAGS = -Wall -Wextra -Werror -Iinclude -std=c++98 -MMD -MP
 
 SRC = src/commands.cpp \
-	  src/phoneBook.cpp \
+	  src/main.cpp \
 	  src/set_get.cpp \
 
 
